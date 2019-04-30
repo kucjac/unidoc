@@ -99,7 +99,7 @@ func TestDocument(t *testing.T) {
 			assert.True(t, sd.IsHuffmanEncoded())
 			assert.False(t, sd.UseRefinementAggregation())
 			assert.Equal(t, 1, sd.AmountOfExportedSymbols())
-			assert.Equal(t, 1, sd.AmountOfNewSymbols())
+			assert.Equal(t, 1, sd.AmmountOfNewSymbols())
 
 			bm, err := sd.GetDictionary()
 			require.NoError(t, err)
@@ -241,7 +241,10 @@ func TestDocument(t *testing.T) {
 		t.Run("Segment#8", func(t *testing.T) {
 			h := p1.GetSegment(7)
 			require.NotNil(t, h)
+
+			assert.Equal(t, segments.TEndOfPage, h.Type)
 		})
+
 		t.Run("Page#1", func(t *testing.T) {
 			_, err := p1.GetBitmap()
 			require.NoError(t, err)

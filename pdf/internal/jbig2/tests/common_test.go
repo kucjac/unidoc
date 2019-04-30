@@ -137,7 +137,7 @@ func extractImagesInContentStream(filename, contents string, resources *pdf.PdfP
 				// Default if not specified?
 				cs = pdf.NewPdfColorspaceDeviceGray()
 			}
-			fmt.Printf("Cs: %T\n", cs)
+			// fmt.Printf("Cs: %T\n", cs)
 
 			rgbImg, err := cs.ImageToRGB(*img)
 			if err != nil {
@@ -173,7 +173,7 @@ func extractImagesInContentStream(filename, contents string, resources *pdf.PdfP
 					continue
 				}
 
-				fmt.Printf(" XObject Image: %s\n", *name)
+				// fmt.Printf(" XObject Image: %s\n", *name)
 
 				ximg, err := resources.GetXObjectImageByName(*name)
 				if err != nil {
